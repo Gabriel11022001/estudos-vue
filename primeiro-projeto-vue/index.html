@@ -1,0 +1,54 @@
+<div id="app">
+    <!-- <h1>{{ mensagem }}</h1>
+    <p>Meu nome é {{ meuNome }}</p>
+    <p>{{ apresentarMensagem() }}</p>
+    <p>{{ somarValores(12, 11) }}</p>
+    <a v-bind:href="linkCanalYoutube">Canal no Youtube</a>
+    <br />
+    <span>Contador: {{ contador }}</span>
+    <button type="button" v-on:click="incrementar()">Incrementar</button>
+    <button type="button" v-on:click="alterarNome('Fulano')">Alterar nome</button> -->
+    <h2>{{ contador }}</h2>
+    <button type="button" v-on:click="incrementarContador(5)">+</button>
+    <button type="button" v-on:click="decrementarContador(2)">-</button>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+<script>
+    // com o v-bind:propriedade eu posso definir o valor de um state a uma propriedade de um elemento
+    new Vue({
+        el: '#app',
+        data: {
+            mensagem: 'Olá Mundo!',
+            meuNome: 'Gabriel Rodrigues dos Santos',
+            linkCanalYoutube: 'https://youtube.com',
+            contador: 0
+        },
+        methods: {
+            apresentarMensagem() {
+
+                return 'Seja bem vindo ' + this.meuNome;
+            },
+            somarValores(primeiroValor, segundoValor) {
+
+                return primeiroValor + segundoValor;
+            },
+            incrementar() {
+                this.contador = this.contador + 1;
+            },
+            alterarNome(novoNome) {
+                this.meuNome = novoNome;
+            },
+            incrementarContador(valorIncrementar) {
+                this.contador += valorIncrementar;
+            },
+            decrementarContador(valorDecrementar) {
+
+                if (this.contador - valorDecrementar >= 0) {
+                    this.contador -= valorDecrementar;
+                }
+
+            }
+        }
+    });
+</script>
